@@ -25,7 +25,7 @@ class GameObject {
 class CharacterStats {
     constructor(charAttributes) {
         super(charAttributes);
-        this.healthPoints = attributes.healthPoints;
+        this.healthPoints = charAttributes.healthPoints;
     }
 
     takeDamage() {
@@ -37,53 +37,59 @@ class CharacterStats {
 class Humanoid {
     constructor(humAttributes) {
     super(humAttributes);
-    this.team = attributes.team;
-    this.weapons = attributes.weapons;
-    this.language = attributes.language;
+    this.team = humAttributes.team;
+    this.weapons = humAttributes.weapons;
+    this.language = humAttributes.language;
     }
 
     greet() {
         return `${this.name} offers a greeting in ${this.language}.`;
     }
   }
-
   
   // * Create Villain and Hero constructor functions that inherit from the Humanoid constructor function.
   // * Give the Hero and Villains different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
   // * Create two new objects, one a villain and one a hero and fight it out with methods!
   
   // Hero
-  function Hero(attributes) {
-    Humanoid.call(this, attributes);
-    this.name = attributes.name;
-    this.weapons = attributes.weapons;
-  }
-  
-  Hero.prototype = Object.create(Humanoid.prototype);
-  Hero.prototype.slap = function(target) {
-    target.healthPoints = target.healthPoints - 10;
-    console.log(`${target.name} @ ${target.healthPoints} HP`);
-    return `${this.name} just slapped you with great force.`;
-  };
-  Hero.prototype.powerSit = function() {
-    return `You are suffocating because ${this.name} just sat on you.`;
-  };
-  Hero.prototype.revival = function() {
-    return `Death was close, but revival occurred for ${this.name}.`;
-  };
-  Hero.prototype.victoryDance = function() {
-    return `${this.name} wins!!!`;
-  };
-  Hero.prototype.gotHurt = function() {
-    return this.healthPoints - 20;
-  };
-  Hero.prototype.death = function(target) {
-    if (this.healthPoints === 0) {
-      return this.destroy();
-    } else {
-      return `${target.name} is not quite dead yet.`;
+class Hero {
+    constructor(heroAttributes) {
+    super(heroAttributes);
+    this.name = heroAttributes.name;
+    this.weapons = heroAttributes.weapons;
+    }  
+
+    slap() {
+        target.healthPoints = target.healthPoints - 10;
+        console.log(`${target.name} @ ${target.healthPoints} HP`);
+        return `${this.name} just slapped you with great force.`;
     }
-  };
+
+    powerSit() {
+        return `You are suffocating because ${this.name} just sat on you.`;
+    }
+
+    revival() {
+        return `Death was close, but revival occurred for ${this.name}.`;
+    }
+
+    victoryDance() {
+        return `${this.name} wins!!!`;
+    }
+
+    gotHurt() {
+        return this.healthPoints - 20;
+    }
+
+    death(target) {
+        if (this.healthPoints === 0) {
+            return this.destroy();
+          } else {
+            return `${target.name} is not quite dead yet.`;
+          }      
+    }
+}
+  
   
   // Villain
   function Villain(attributes) {

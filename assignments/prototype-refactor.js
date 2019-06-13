@@ -61,8 +61,7 @@ class Hero extends Humanoid {
 
     slap(target) {
         target.healthPoints = target.healthPoints - 10;
-        console.log(`${target.name} @ ${target.healthPoints} HP`);
-        return `${this.name} just slapped you with great force.`;
+        return `${this.name} just slapped you with great force... resulting in ${target.name} @ ${target.healthPoints} HP`;
     }
 
     powerSit() {
@@ -113,10 +112,6 @@ class Villain extends Humanoid {
 
     standOff() {
         return `${this.name} enters the room to take you down.`;
-    }
-
-    reallyHurt() {
-        return this.healthPoints - (this.healthPoints * 0.9);
     }
 
     death(target) {
@@ -223,8 +218,6 @@ class Villain extends Humanoid {
   console.log(johnny.slap(depression));
   console.log(depression.attack(0, 1));
   console.log(depression.tearGas(0));
-  console.log(johnny.gotHurt());
-  console.log(johnny.healthPoints);
   console.log(depression.tearGas(1));
   console.log(johnny.slap(depression));
   console.log(depression.block());
@@ -234,7 +227,6 @@ class Villain extends Humanoid {
   console.log(johnny.slap(depression));
   console.log(johnny.slap(depression));
   console.log(johnny.slap(depression));
-  console.log(depression.takeDamage(), depression.reallyHurt());
   console.log(johnny.slap(depression));
   console.log(depression.death(depression));
   console.log(johnny.slap(depression));

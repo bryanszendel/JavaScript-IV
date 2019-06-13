@@ -6,18 +6,18 @@ This challenge focuses on classes in JavaScript using the new `class` keyword.
 
 **Follow these steps to set up and work on your project:**
 
-* [ ] Create a forked copy of this project.
-* [ ] Add your project manager as collaborator on Github.
-* [ ] Clone your OWN version of the repository (Not Lambda's by mistake!).
-* [ ] Create a new branch: git checkout -b `<firstName-lastName>`.
-* [ ] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
-* [ ] Push commits: git push origin `<firstName-lastName>`.
+* [X] Create a forked copy of this project.
+* [X] Add your project manager as collaborator on Github.
+* [X] Clone your OWN version of the repository (Not Lambda's by mistake!).
+* [X] Create a new branch: git checkout -b `<firstName-lastName>`.
+* [X] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
+* [X] Push commits: git push origin `<firstName-lastName>`.
 
 **Follow these steps for completing your project.**
 
-* [ ] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student's  Repo). **Please don't merge your own pull request**
-* [ ] Add your project manager as a reviewer on the pull-request
-* [ ] Your project manager will count the project as complete by merging the branch back into master.
+* [X] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student's  Repo). **Please don't merge your own pull request**
+* [X] Add your project manager as a reviewer on the pull-request
+* [X] Your project manager will count the project as complete by merging the branch back into master.
 
 ## Assignment Description
 
@@ -42,7 +42,7 @@ const fred = new Person({
 * **Fork** and clone this repository.
 * **Complete** all of the exercises found in the assignment files.
 
-## `prototype-refactor` - Take existing code and make it modern.
+## `prototype-refactor` - Take existing code and make it modern. // COMPLETE
 
 * You're going to work with your prototypes assignment you built out yesterday.
 * `Challenge:` **Convert** all of your constructors into ES6 Classes using the `class` and `extends` keywords. You should be able to run your same logs and they should build out the proper expected behaviors.
@@ -112,8 +112,8 @@ const fred = new Instructor({
 
 #### Stretch Problem
 
-* Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
-* Now that our students have a grade build out a method on the Instructor (this will be used by _BOTH_ instructors and PM's) that will randomly add or subtract points to a student's grade. _Math.random_ will help.
-* Add a graduate method to a student.
-  * This method, when called, will check the grade of the student and see if they're ready to graduate from Lambda School
-  * If the student's grade is above a 70% let them graduate! Otherwise go back to grading their assignments to increase their score.
+* COMPLETE - Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
+* COMPLETE - Now that our students have a grade build out a method on the Instructor (this will be used by _BOTH_ instructors and PM's) that will randomly add or subtract points to a student's grade. _Math.random_ will help.
+* COMPLETE (but not as I'ld like it to be) Add a graduate method to a student.
+  * COMPLETE This method, when called, will check the grade of the student and see if they're ready to graduate from Lambda School
+  * COMPLETE If the student's grade is above a 70% let them graduate! Otherwise go back to grading their assignments to increase their score.

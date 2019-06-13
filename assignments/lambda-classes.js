@@ -36,6 +36,16 @@ class Instructor extends People {
     grade(student, subject) {
         return `${student.name} receives a perfect score on ${subject}`;
     } // * `grade` receives a `student` object and a `subject` string as arguments and logs out '{student.name} receives a perfect score on {subject}'
+
+    gradeRandom(student) {
+        let grade = student.grade;
+        let random = (Math.random() * 10);
+        if (random >= 5) {
+            return grade + random;
+        } else {
+            return grade - random;
+        }
+    }
 }
 
 class Student extends People {
@@ -44,6 +54,7 @@ class Student extends People {
         this.previousBackground = stuAttrs.previousBackground;
         this.className = stuAttrs.className;
         this.favSubjects = stuAttrs.favSubjects;
+        this.grade = 95;
     }
 
     listsSubjects() {
@@ -128,6 +139,7 @@ console.log(sean.standUp('WEB21_sean'));
 console.log(sylvia.speak());
 console.log(`${sylvia.name} was a ${sylvia.previousBackground} in ${sylvia.location} but she quit to attend Lambda in ${sylvia.className} and her favorites are ${sylvia.listsSubjects()}.`);
 console.log(sylvia.PRAssignment('JavaScript IV'));
+console.log(sean.gradeRandom(bryan));
 
 
 // #### Person

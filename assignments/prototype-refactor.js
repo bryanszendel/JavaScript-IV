@@ -22,7 +22,7 @@ class GameObject {
   }
     
 // CharacterStats
-class CharacterStats {
+class CharacterStats extends GameObject {
     constructor(charAttributes) {
         super(charAttributes);
         this.healthPoints = charAttributes.healthPoints;
@@ -34,7 +34,7 @@ class CharacterStats {
   }
   
 // Humanoid
-class Humanoid {
+class Humanoid extends CharacterStats {
     constructor(humAttributes) {
     super(humAttributes);
     this.team = humAttributes.team;
@@ -52,14 +52,14 @@ class Humanoid {
   // * Create two new objects, one a villain and one a hero and fight it out with methods!
   
   // Hero
-class Hero {
+class Hero extends Humanoid {
     constructor(heroAttributes) {
     super(heroAttributes);
     this.name = heroAttributes.name;
     this.weapons = heroAttributes.weapons;
     }  
 
-    slap() {
+    slap(target) {
         target.healthPoints = target.healthPoints - 10;
         console.log(`${target.name} @ ${target.healthPoints} HP`);
         return `${this.name} just slapped you with great force.`;
@@ -92,40 +92,43 @@ class Hero {
   
   
   // Villain
-  function Villain(attributes) {
-    Humanoid.call(this, attributes);
-    this.name = attributes.name;
-    this.weapons = attributes.weapons;
+class Villain extends Humanoid {
+    constructor(villAttributes) {
+        super(villAttributes);
+        this.name = villAttributes.name;
+        this.weapons = villAttributes.weapons;    
+    }
+
+    block() {
+        return `Whatever happened didn't happen because ${this.name} blocked it.`;
+    }
+
+    attack(weapon1, weapon2) {
+        return `${this.name} is coming at you with ${this.weapons[weapon1]} and ${this.weapons[weapon2]}.`;
+    }
+
+    tearGas(weapon) {
+        return `${this.name} dropped ${this.weapons[weapon]} in the air vents; now you are crying.`;
+    }
+
+    standOff() {
+        return `${this.name} enters the room to take you down.`;
+    }
+
+    reallyHurt() {
+        return this.healthPoints - (this.healthPoints * 0.9);
+    }
+
+    death(target) {
+        if (this.healthPoints <= 0) {
+            return this.destroy();
+          } else {
+            return `${target.name} is not quite dead yet.`;
+          }
+    }
   }
   
-  Villain.prototype = Object.create(Humanoid.prototype);
-  Villain.prototype.block = function() {
-    return `Whatever happened didn't happen because ${this.name} blocked it.`;
-  };
-  Villain.prototype.attack = function(weapon1, weapon2) {
-    return `${this.name} is coming at you with ${this.weapons[weapon1]} and ${
-      this.weapons[weapon2]
-    }.`;
-  };
-  Villain.prototype.tearGas = function(weapon) {
-    return `${this.name} dropped ${
-      this.weapons[weapon]
-    } in the air vents; now you are crying.`;
-  };
-  Villain.prototype.standOff = function() {
-    return `${this.name} enters the room to take you down.`;
-  };
-  Villain.prototype.reallyHurt = function() {
-    return this.healthPoints - this.healthPoints * 0.9;
-  };
-  Villain.prototype.death = function(target) {
-    if (this.healthPoints <= 0) {
-      return this.destroy();
-    } else {
-      return `${target.name} is not quite dead yet.`;
-    }
-  };
-  
+    
   // Test you work by un-commenting these 3 objects and the list of console logs below:
   
   const mage = new Humanoid({

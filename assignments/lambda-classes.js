@@ -37,6 +37,7 @@ class Instructor extends People {
         return `${student.name} receives a perfect score on ${subject}`;
     } // * `grade` receives a `student` object and a `subject` string as arguments and logs out '{student.name} receives a perfect score on {subject}'
 
+    // STRETCH - random grading
     gradeRandom(student) {
         let grade = student.grade;
         let random = (Math.random() * 10);
@@ -54,18 +55,28 @@ class Student extends People {
         this.previousBackground = stuAttrs.previousBackground;
         this.className = stuAttrs.className;
         this.favSubjects = stuAttrs.favSubjects;
-        this.grade = 95;
+        this.grade = stuAttrs.grade;
     }
 
     listsSubjects() {
         return `${this.favSubjects}`;
     }  //` a method that logs out all of the student's favoriteSubjects one by one.
+    
     PRAssignment(subject) {
         return `${this.name} has submitted a PR for ${subject}.`;
     }  //` a method that receives a subject as an argument and logs out that the `student.name has submitted a PR for {subject}`
+    
     sprintChallenge(subject) {
         return `${this.name} has begun sprint challenge on ${subject}.`;
     }  // ` similar to PRAssignment but logs out `student.name has begun sprint challenge on {subject}`
+
+    graduate() {
+        if (this.grade > 70) {
+            return `${this.name} has a passing score!`
+        } else {
+            return `We'll need to keep grading ${this.name}'s assignments.`
+        }
+    }
 }
 
 class ProjectManager extends Instructor {
@@ -107,6 +118,7 @@ const bryan = new Student({
     age: 29,
     previousBackground: 'Tech Support',
     className: 'WEB21',
+    grade: 93,
     favSubjects: ['HTML', 'CSS', 'Javascript']
 })
 
@@ -116,6 +128,7 @@ const sylvia = new Student({
     age: 27,
     previousBackground: 'Traveller',
     className: 'WEB21',
+    grade: 69,
     favSubjects: ['HTML', 'CSS', 'Javascript']
 })
 
@@ -140,6 +153,8 @@ console.log(sylvia.speak());
 console.log(`${sylvia.name} was a ${sylvia.previousBackground} in ${sylvia.location} but she quit to attend Lambda in ${sylvia.className} and her favorites are ${sylvia.listsSubjects()}.`);
 console.log(sylvia.PRAssignment('JavaScript IV'));
 console.log(sean.gradeRandom(bryan));
+console.log(bryan.graduate());
+console.log(sylvia.graduate());
 
 
 // #### Person

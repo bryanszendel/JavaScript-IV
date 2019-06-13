@@ -153,6 +153,7 @@ console.log(sylvia.speak());
 console.log(`${sylvia.name} was a ${sylvia.previousBackground} in ${sylvia.location} but she quit to attend Lambda in ${sylvia.className} and her favorites are ${sylvia.listsSubjects()}.`);
 console.log(sylvia.PRAssignment('JavaScript IV'));
 console.log(sean.gradeRandom(bryan));
+console.log(sean.gradeRandom(sylvia));
 console.log(bryan.graduate());
 console.log(sylvia.graduate());
 
